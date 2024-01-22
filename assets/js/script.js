@@ -24,7 +24,7 @@ $(`.saveBtn`).on(`click`, function (e) {
 
 // Get from local storage if exist
     // am format 
-for (i=8; i < 12; i++) {
+for (i=9; i < 12; i++) {
     $(`.`+i+`am .description`).val(localStorage.getItem(i+` AM`));
 }
     // pm format 
