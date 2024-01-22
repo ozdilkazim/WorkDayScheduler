@@ -31,25 +31,23 @@ for (i=8; i < 12; i++) {
 for (i=1; i < 5; i++) {
     $(`.`+i+`pm .description`).val(localStorage.getItem(i+`PM`));
 }
-
-// Function to track tasks and make them change colors if they are in the past, present or future
+// Change color 
 function changeColor () {
-  // get current number of hours
+    // Get current hour
   var now = dayjs().format(`H`);
+  console.log(now);
 
-  // loop over each time block
   $('.time-block').each(function () {
     var time = $(this).parent().attr(`data-time`);
 
-    // if the time Id attribute is before the current hour, add the past class
     if (time < now) {
       $(this).addClass('past');
-    } // if the time Id attribute is equal to the current hour, remove the past and future classes and add the present class
+    } 
     else if (time === now) {
       $(this).removeClass('past');
       $(this).removeClass('future');
       $(this).addClass('present');
-    } // If the time Id attribute is greater than the current time, remove the past and present classes and add the future class
+    } 
     else {
       $(this).removeClass('past');
       $(this).removeClass('present');
@@ -57,3 +55,4 @@ function changeColor () {
     }
   });
 }
+function changeColor ();
