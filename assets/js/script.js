@@ -70,7 +70,7 @@ function colorChange() {
             $(this).removeClass(`present`);
             $(this).addClass(`future`);
         }
-        console.log(hour)
+        // console.log(hour)
     })
 }
 colorChange();
