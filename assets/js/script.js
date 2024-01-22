@@ -31,3 +31,17 @@ for (i=8; i < 12; i++) {
 for (i=1; i < 5; i++) {
     $(`.`+i+`pm .description`).val(localStorage.getItem(i+`PM`));
 }
+
+// Color change
+var timeBlock = $(`.time-block`);
+var now = dayjs().format(`h`)
+function colorChange() {
+    timeBlock.each(function(){
+        var hour = timeBlock.attr(`data-time`);
+        console.log(hour)
+
+    })
+}
+
+console.log(now)
+colorChange()
