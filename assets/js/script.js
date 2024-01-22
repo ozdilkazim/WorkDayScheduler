@@ -25,23 +25,54 @@ $(`.saveBtn`).on(`click`, function (e) {
 // Get from local storage if exist
     // am format 
 for (i=8; i < 12; i++) {
-    $(`.`+i+`am .description`).val(localStorage.getItem(i+`AM`));
+    $(`.`+i+`am .description`).val(localStorage.getItem(i+` AM`));
 }
     // pm format 
 for (i=1; i < 5; i++) {
-    $(`.`+i+`pm .description`).val(localStorage.getItem(i+`PM`));
+    $(`.`+i+`pm .description`).val(localStorage.getItem(i+` PM`));
 }
 
 // Color change
-var timeBlock = $(`.time-block`);
-var now = dayjs().format(`h`)
-function colorChange() {
-    timeBlock.each(function(){
-        var hour = timeBlock.attr(`data-time`);
-        console.log(hour)
 
+function colorChange() {
+    // Get time block
+    var timeBlock = $(`.time-block`);
+    // Get current hour
+    var now = parseInt(dayjs().format(`H`));
+
+    timeBlock.each(function(){
+        // Get every blocks time stamp
+        var hour = $(this).attr(`data-time`); 
+
+        // 12 to 24 hour converter function
+       function convertTime (hour) {
+         var timeArray = [];
+         timeArray = hour.split(` `);
+         if(timeArray[1] === `PM`) {
+            hour = parseInt(hour) + 12;
+         } else {
+            hour = parseInt(hour);
+         }
+         return hour;
+       }
+        // Convert the hour to 24hours display
+        hour = convertTime(hour);
+
+        // Compare hours current and task hour and change color
+        if (hour < now){
+            $(this).addClass(`past`);
+        } else if (hour === now) {
+            $(this).removeClass(`past`);
+            $(this).removeClass(`future`);
+            $(this).addClass(`present`);
+        } else {
+            $(this).removeClass(`past`);
+            $(this).removeClass(`present`);
+            $(this).addClass(`future`);
+        }
+        console.log(hour)
+        console.log(now)
     })
 }
 
-console.log(now)
-colorChange()
+colorChange();
