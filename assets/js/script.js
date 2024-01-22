@@ -39,7 +39,7 @@ function colorChange() {
     var timeBlock = $(`.time-block`);
     // Get current hour
     var now = parseInt(dayjs().format(`H`));
-
+    console.log(now);
     timeBlock.each(function(){
         // Get every blocks time stamp
         var hour = $(this).attr(`data-time`); 
@@ -71,8 +71,6 @@ function colorChange() {
             $(this).addClass(`future`);
         }
         console.log(hour)
-        console.log(now)
     })
 }
-
 colorChange();

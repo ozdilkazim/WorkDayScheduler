@@ -41,6 +41,8 @@ header {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  padding-top: 10px;
+  font-weight: 700;
 }
 
 .past {
@@ -66,7 +68,7 @@ header {
   color: white;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
+.saveBtn:hover {
+  background-color: #000;
   transition: all 0.3s ease-in-out;
 }
