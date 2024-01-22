@@ -31,28 +31,3 @@ for (i=8; i < 12; i++) {
 for (i=1; i < 5; i++) {
     $(`.`+i+`pm .description`).val(localStorage.getItem(i+`PM`));
 }
-// Change color 
-function changeColor () {
-    // Get current hour
-  var now = dayjs().format(`H`);
-  console.log(now);
-
-  $('.time-block').each(function () {
-    var time = $(this).parent().attr(`data-time`);
-
-    if (time < now) {
-      $(this).addClass('past');
-    } 
-    else if (time === now) {
-      $(this).removeClass('past');
-      $(this).removeClass('future');
-      $(this).addClass('present');
-    } 
-    else {
-      $(this).removeClass('past');
-      $(this).removeClass('present');
-      $(this).addClass('future');
-    }
-  });
-}
-function changeColor ();
