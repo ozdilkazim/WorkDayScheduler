@@ -74,3 +74,8 @@ function colorChange() {
     })
 }
 colorChange();
+
+// Refresh time every 5 minutes
+setInterval(function(){
+    window.location.reload(1);
+ }, 300000);
