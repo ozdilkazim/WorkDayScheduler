@@ -1,20 +1,19 @@
 // Get and print current day
-var currentDay = dayjs().format(`dddd[,] MMMM D`);
-var dayFST = dayjs().format(`D`);
-// Add prefix to the day number
-var suffix = ``;
-if(dayFST => 11 && dayFST <=13) {
-    suffix = `th`;
-} else if(dayFST % 10 === 1) {
-    suffix = `st`;
-} else if(dayFST % 10 === 2) {
-    suffix = `nd`;
-} else if(dayFST % 10 === 3) {
-    suffix = `rd`;
-} else {
-    suffix = `th`;
-}
-$(`#currentDay`).text(currentDay+suffix);
+currentDayWithoutDate = dayjs().format('dddd[,] MMMM'); 
+var dayFST = parseInt(dayjs().format('D')); 
+// Convert the day number to an integer var suffix; 
+if (dayFST >= 11 && dayFST <= 13) { 
+    suffix = 'th'; 
+} else if (dayFST % 10 === 1) { 
+    suffix = 'st'; 
+} else if (dayFST % 10 === 2) { 
+    suffix = 'nd'; 
+} else if (dayFST % 10 === 3) { 
+    suffix = 'rd'; 
+} else { suffix = 'th'; 
+} 
+$("#currentDay").text(`${currentDayWithoutDate} ${dayFST}${suffix}`); 
+
 
 // Set event listener to save button
 $(`.saveBtn`).on(`click`, function (e) {
