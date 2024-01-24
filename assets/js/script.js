@@ -2,15 +2,19 @@
 var currentDay = dayjs().format(`dddd[,] MMMM D`);
 var dayFST = dayjs().format(`D`);
 // Add prefix to the day number
-var prefix = ``;
-if(dayFST === 2 || dayFST === 22) {
-    prefix = `nd`;
-} else if(dayFST === 3 || dayFST === 23) {
-    prefix = `rd`;
+var suffix = ``;
+if(dayFST => 11 && dayFST <=13) {
+    suffix = `th`;
+} else if(dayFST % 10 === 1) {
+    suffix = `st`;
+} else if(dayFST % 10 === 2) {
+    suffix = `nd`;
+} else if(dayFST % 10 === 3) {
+    suffix = `rd`;
 } else {
-    prefix = `st`;
+    suffix = `th`;
 }
-$(`#currentDay`).text(currentDay+prefix);
+$(`#currentDay`).text(currentDay+suffix);
 
 // Set event listener to save button
 $(`.saveBtn`).on(`click`, function (e) {
